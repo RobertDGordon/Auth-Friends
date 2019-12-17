@@ -3,6 +3,7 @@ import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import { getToken } from './utils/axiosWithAuth';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Account from './components/Account';
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
       </nav>
       <Route exact path='/login' component={Login} />
       <PrivateRoute exact path='/account' component={Account} />
+      <PrivateRoute exact path='/logout' component={Logout} />
     </div>
   );
 }
