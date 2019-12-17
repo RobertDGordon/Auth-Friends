@@ -9,6 +9,7 @@ export const smurfimg = [
     '../img/smurf7.png',
     '../img/smurf8.png',
     '../img/smurf9.png',
+    '../img/smurf0.png',
 ]
 
 export default smurfimg

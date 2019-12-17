@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
+import styled from 'styled-components';
+
+const LoginDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+`
+
 const Login = (props) =>{
     const [error, setError] = useState()
 	const [data, setData] = useState({
@@ -32,6 +41,8 @@ const Login = (props) =>{
     }
     
     return (
+        <LoginDiv>
+        <p>Are you ready to get Smurfed?</p>
 		<form onSubmit={handleSubmit}>
 			{error && <div className="error">{error}</div>}
 
@@ -40,6 +51,7 @@ const Login = (props) =>{
 
 			<button type="submit">Sign In</button>
 		</form>
+        </LoginDiv>
 	)
 
 }

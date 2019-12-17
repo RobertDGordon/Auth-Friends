@@ -4,34 +4,37 @@ import { getData, postData, deleteData, putData } from '../actions';
 
 import AddFriend from './AddFriend';
 import Smurfs from './Smurfs';
+import Loading from './Loading';
 
 import styled from 'styled-components';
 
-const MainDiv = styled.div`
-  background-image: url('../img/smurfbg.jpeg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+const AccountDiv = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items:center;
-  #logo{
-    width: 600px;
-    margin-top: 10px;
-  }
+  /* justify-content: center; */
+  width: 99%;
+  height: 99%;
   form{
     margin: 15px;
   }
 `
+const FormDiv = styled.div ` 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 350px;
+  #getsmurfed{
+      width: 100px;
+  }
+`
+
 const SmurfDiv = styled.div`
     display: flex;
-    width: 95%;
+    width: 100%;
     flex-wrap: wrap;
     /* position: absolute; */
-    margin-top: 350px;
+    /* margin-top: 350px; */
     justify-content: center;
 `
 
@@ -64,10 +67,13 @@ function Account(props) {
   }
 
     return(
-    <MainDiv>
-      <img id='logo' src='../img/smurflogo.png' alt='Smurfs Logo' />
-      <AddFriend postFriend={postFriend} />
-      <button onClick={() => dispatch(getData())}>Smurf it up!</button>
+    <AccountDiv>
+      <FormDiv>
+        <AddFriend postFriend={postFriend} />
+        {isLoading ? <Loading /> : <>
+        {!dataLoaded && 
+        <button id='getsmurfed' onClick={() => dispatch(getData())}>Smurf it up!</button>}</> }
+      </FormDiv>
       <SmurfDiv>
       {dataLoaded ? (
             <>
@@ -79,7 +85,7 @@ function Account(props) {
             </>
       ) }
       </SmurfDiv>
-    </MainDiv>
+    </AccountDiv>
     )
 }
 
