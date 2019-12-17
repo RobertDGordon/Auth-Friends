@@ -5,7 +5,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 const Login = (props) =>{
     const [error, setError] = useState()
 	const [data, setData] = useState({
-		email: "",
+		username: "",
 		password: "",
 	})
 
@@ -35,7 +35,7 @@ const Login = (props) =>{
 		<form onSubmit={handleSubmit}>
 			{error && <div className="error">{error}</div>}
 
-			<input type="email" name="email" placeholder="Email" value={data.email} onChange={handleChange} />
+			<input type="name" name="username" placeholder="Username" value={data.username} onChange={handleChange} />
 			<input type="password" name="password" placeholder="Password" value={data.password} onChange={handleChange} />
 
 			<button type="submit">Sign In</button>
