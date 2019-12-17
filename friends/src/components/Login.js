@@ -23,7 +23,7 @@ const Login = (props) =>{
 		.post('/login', data)
 		.then(res => {
 			console.log(res.data)
-			localStorage.setItem('token',res.data.token)
+			localStorage.setItem('token',res.data.payload)
 			props.history.push('/account')
 		})
 		.catch(err => {
