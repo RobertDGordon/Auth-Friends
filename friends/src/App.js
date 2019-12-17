@@ -5,6 +5,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Account from './components/Account';
+import Home from './components/Home';
 import './App.css';
 
 import styled from 'styled-components';
@@ -72,6 +73,7 @@ function App() {
       </nav>
       <img id='logo' src='../img/smurflogo.png' alt='Smurfs Logo' />
       <ContentDiv>
+      <Route exact path='/' component={Home} />
       <Route exact path='/login' component={Login} />
         <PrivateRoute exact path='/account' component={Account} />
         <PrivateRoute exact path='/logout' component={Logout} />

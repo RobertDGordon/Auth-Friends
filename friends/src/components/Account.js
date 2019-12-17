@@ -23,7 +23,7 @@ const FormDiv = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 350px;
+    height: 420px;
   #getsmurfed{
       width: 100px;
   }
